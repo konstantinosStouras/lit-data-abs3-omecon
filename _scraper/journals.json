@@ -57,7 +57,8 @@
     ],
     "publisher": "Taylor & Francis",
     "abs": "3",
-    "aia": true
+    "aia": true,
+    "note": "Not listed in the journalranking.org AJG2024 dataset (a coverage gap there); retained as a genuine ABS 3 OR journal (former IIE Transactions)."
   },
   {
     "key": "ijpe",
@@ -275,5 +276,238 @@
     "publisher": "Elsevier",
     "abs": "3",
     "aia": true
+  },
+  {
+    "key": "jde",
+    "name": "Journal of Development Economics",
+    "short": "J. Dev. Econ",
+    "issns": [
+      "0304-3878",
+      "1872-6089"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "jhe",
+    "name": "Journal of Health Economics",
+    "short": "J. Health Econ",
+    "issns": [
+      "0167-6296",
+      "1879-1646"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "jeem",
+    "name": "Journal of Environmental Economics and Management",
+    "short": "JEEM",
+    "issns": [
+      "0095-0696",
+      "1096-0449"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "expecon",
+    "name": "Experimental Economics",
+    "short": "Exp. Econ",
+    "issns": [
+      "1386-4157",
+      "1573-6938"
+    ],
+    "publisher": "Springer",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "geb",
+    "name": "Games and Economic Behavior",
+    "short": "GEB",
+    "issns": [
+      "0899-8256",
+      "1090-2473"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "aejmic",
+    "name": "American Economic Journal: Microeconomics",
+    "short": "AEJ: Micro",
+    "issns": [
+      "1945-7669",
+      "1945-7685"
+    ],
+    "publisher": "American Economic Association",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "ijf",
+    "name": "International Journal of Forecasting",
+    "short": "IJF",
+    "issns": [
+      "0169-2070",
+      "1872-8200"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "orspec",
+    "name": "OR Spectrum",
+    "short": "OR Spectrum",
+    "issns": [
+      "0171-6468",
+      "1436-6304"
+    ],
+    "publisher": "Springer",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "jpsm",
+    "name": "Journal of Purchasing and Supply Management",
+    "short": "JPSM",
+    "issns": [
+      "1478-4092",
+      "1873-6505"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "ecinq",
+    "name": "Economic Inquiry",
+    "short": "Econ. Inquiry",
+    "issns": [
+      "0095-2583",
+      "1465-7295"
+    ],
+    "publisher": "Wiley",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "jce",
+    "name": "Journal of Comparative Economics",
+    "short": "J. Comp. Econ",
+    "issns": [
+      "0147-5967",
+      "1095-7227"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "worlddev",
+    "name": "World Development",
+    "short": "World Dev.",
+    "issns": [
+      "0305-750X"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "rsue",
+    "name": "Regional Science and Urban Economics",
+    "short": "RSUE",
+    "issns": [
+      "0166-0462",
+      "1879-2308"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "jue",
+    "name": "Journal of Urban Economics",
+    "short": "JUE",
+    "issns": [
+      "0094-1190",
+      "1095-9068"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "tra",
+    "name": "Transportation Research Part A: Policy and Practice",
+    "short": "Transp. Res. A",
+    "issns": [
+      "0965-8564",
+      "1879-2375"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "trd",
+    "name": "Transportation Research Part D: Transport and Environment",
+    "short": "Transp. Res. D",
+    "issns": [
+      "1361-9209",
+      "1879-2340"
+    ],
+    "publisher": "Elsevier",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "jbl",
+    "name": "Journal of Business Logistics",
+    "short": "JBL",
+    "issns": [
+      "0735-3766",
+      "2158-1592"
+    ],
+    "publisher": "Wiley",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
+  },
+  {
+    "key": "scmij",
+    "name": "Supply Chain Management: An International Journal",
+    "short": "SCM: Int'l J",
+    "issns": [
+      "1359-8546",
+      "1758-6852"
+    ],
+    "publisher": "Emerald",
+    "abs": "3",
+    "aia": true,
+    "addedBy": "abs-2024-sync (journalranking.org AJG2024)"
   }
 ]
