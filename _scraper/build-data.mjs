@@ -671,28 +671,47 @@ async function resolvePreprints(allPapers, cache) {
     seen.add(p._doi); need.push(p._doi);
   }
   console.log(`  preprints: resolving ${need.length} DOIs via OpenAlex…`);
+  // Time-boxed and throttle-aware, like the title search below: on a big
+  // first-time harvest `need` runs to tens of thousands of DOIs, and when
+  // OpenAlex rate-limits (429) an unbounded scan would run until the job's
+  // timeout. Use the single-attempt oaGet (no 62s retry-stacking), stop after a
+  // few consecutive throttles or once the budget is spent, and leave the
+  // remaining DOIs UNCACHED (not `{none:1}`) so a later run — or the dedicated
+  // preprints-ci.mjs backfill — retries them.
+  const byDoiDeadline = Date.now() + parseInt(process.env.FT50_PREPRINT_BYDOI_MS || '180000', 10); // 3-min ceiling
+  let byDoiThrottled = 0;
   for (let i = 0; i < need.length; i += 50) {
+    if (Date.now() > byDoiDeadline) {
+      console.log(`  preprints: by-DOI time budget reached at ${i}/${need.length} — remaining DOIs resume next run.`);
+      break;
+    }
     const batch = need.slice(i, i + 50);
     const url = 'https://api.openalex.org/works?filter=doi:' + batch.join('|') +
       '&per-page=50&select=doi,open_access,best_oa_location,locations' +
       `&mailto=${encodeURIComponent(MAILTO)}`;
-    try {
-      const j = await fetchJson(url);
-      const byDoi = new Map();
-      for (const w of j.results || []) {
-        byDoi.set(String(w.doi || '').replace(/^https?:\/\/doi\.org\//i, '').toLowerCase(), w);
+    const r = await oaGet(url);
+    if (!r.ok) {
+      // Throttled/failed — don't mark these DOIs; bail after a few in a row.
+      if (++byDoiThrottled >= 3) {
+        console.log('  preprints: OpenAlex throttling the by-DOI scan — stopping for this run.');
+        break;
       }
-      for (const doi of batch) {
-        const w = byDoi.get(doi);
-        if (!w) { cache[doi] = { none: 1 }; continue; }
-        const cands = (w.locations || []).flatMap(l => [l && l.landing_page_url, l && l.pdf_url]);
-        cands.push(w.best_oa_location && w.best_oa_location.landing_page_url,
-                   w.best_oa_location && w.best_oa_location.pdf_url,
-                   w.open_access && w.open_access.oa_url);
-        cache[doi] = pickPreprint(cands) || { none: 1 };
-      }
-    } catch (e) {
-      console.warn('  openalex preprints batch failed (non-fatal):', e.message);
+      await sleep(1000);
+      continue;
+    }
+    byDoiThrottled = 0;
+    const byDoi = new Map();
+    for (const w of r.json.results || []) {
+      byDoi.set(String(w.doi || '').replace(/^https?:\/\/doi\.org\//i, '').toLowerCase(), w);
+    }
+    for (const doi of batch) {
+      const w = byDoi.get(doi);
+      if (!w) { cache[doi] = { none: 1 }; continue; }
+      const cands = (w.locations || []).flatMap(l => [l && l.landing_page_url, l && l.pdf_url]);
+      cands.push(w.best_oa_location && w.best_oa_location.landing_page_url,
+                 w.best_oa_location && w.best_oa_location.pdf_url,
+                 w.open_access && w.open_access.oa_url);
+      cache[doi] = pickPreprint(cands) || { none: 1 };
     }
     await sleep(400);
   }
